@@ -1,44 +1,56 @@
 ﻿<?php
 
-$to = 'dwihadizakialarasati@gmail.com';
+$to = 'rayhanrwa1@gmail.com';
 
-function url(){
-  return sprintf(
-    "%s://%s",
-    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-    $_SERVER['SERVER_NAME']
-  );
+// Fungsi untuk mendapatkan URL situs
+function url() {
+    return sprintf(
+        "%s://%s",
+        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http',
+        $_SERVER['SERVER_NAME']
+    );
 }
 
-if($_POST) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validasi dan sanitasi input
+    $name = trim(htmlspecialchars(stripslashes($_POST['name'] ?? '')));
+    $email = trim(htmlspecialchars(stripslashes($_POST['email'] ?? '')));
+    $subject = trim(htmlspecialchars(stripslashes($_POST['subject'] ?? 'Contact Form Submission')));
+    $contact_message = trim(htmlspecialchars(stripslashes($_POST['message'] ?? '')));
 
-   $name = trim(stripslashes($_POST['name']));
-   $email = trim(stripslashes($_POST['email']));
-   $subject = trim(stripslashes($_POST['subject']));
-   $contact_message = trim(stripslashes($_POST['message']));
+    // Cek apakah input penting terisi
+    if (empty($name) || empty($email) || empty($contact_message)) {
+        echo "Semua kolom wajib diisi.";
+        exit;
+    }
 
-   
-	if ($subject == '') { $subject = "Contact Form Submission"; }
+    // Validasi email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Email tidak valid.";
+        exit;
+    }
 
-   $message .= "Email from: " . $name . "<br />";
-	 $message .= "Email address: " . $email . "<br />";
-   $message .= "Message: <br />";
-   $message .= nl2br($contact_message);
-   $message .= "<br /> ----- <br /> This email was sent from your site " . url() . " contact form. <br />";
+    // Inisialisasi dan isi pesan email
+    $message = "Email from: " . $name . "<br />";
+    $message .= "Email address: " . $email . "<br />";
+    $message .= "Message: <br />" . nl2br($contact_message);
+    $message .= "<br /> ----- <br /> This email was sent from your site " . url() . " contact form. <br />";
 
-   $from =  $name . " <" . $email . ">";
+    // Header email
+    $from = $name . " <" . $email . ">";
+    $headers = "From: " . $from . "\r\n";
+    $headers .= "Reply-To: " . $email . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $email . "\r\n";
- 	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    // Untuk server Windows (opsional)
+    ini_set("sendmail_from", $to);
 
-   ini_set("sendmail_from", $to); // for windows server
-   $mail = mail($to, $subject, $message, $headers);
-
-	if ($mail) { echo "OK"; }
-   else { echo "Something went wrong. Please try again."; }
-
+    // Kirim email
+    if (mail($to, $subject, $message, $headers)) {
+        echo "OK";
+    } else {
+        echo "Something went wrong. Please try again.";
+    }
 }
-
 ?>

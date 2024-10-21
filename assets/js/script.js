@@ -212,11 +212,28 @@ $(document).ready(function () {
 		$('.preloader__aria').fadeToggle();
 	}, 1500);
 	//>> Preloader <<//
-
+	
 });
+
 //>> Javascrip Js <<//
+function sendMail() {
+	const name = document.getElementById('name').value;
+	const email = document.getElementById('email').value;
+	const subject = document.getElementById('subject').value || 'Contact Form Submission';
+	const message = document.getElementById('message').value;
 
+	// Mengatur alamat email tujuan
+	const to = 'dwihadizakialarasati@gmail.com';
 
+	// Mengkodekan parameter untuk URL
+	const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Email from: ${name}\nEmail address: ${email}\nMessage:\n${message}`)}`;
+
+	// Mengarahkan pengguna ke link mailto
+	window.location.href = mailtoLink;
+
+	// Mencegah pengiriman form
+	return false;
+}
 
 
 

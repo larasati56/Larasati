@@ -25,24 +25,24 @@
 @import "nice-select.css";
 @import "odometer.css";
 :root {
-  --body: #232327;
-  --white: #ffffff;
+  --body: #ffffff;
+  --white: #000000;
   --title: #181818;
   --newbg: #0F110F;
-  --mtitle: #fff;
-  --pra: #999999;
+  --mtitle: #1b1b1b;
+  --pra: #000000;
   --cbg: #F0F0F0;
-  --cbg1: #FAEBD6;
+  --cbg1: #000000;
   --subtitle: #121212;
-  --base: #f1ff9d;
-  --hover: #f1ff9d;
-  --bg1: #E9F0FF;
-  --ftext: #818181;
-  --footer: #181818;
+  --base: #ffaa00;
+  --hover: #d9ff00;
+  --bg1: #002f95;
+  --ftext: #ffffff;
+  --footer: #ff0000;
   --cusborder: rgb(38, 37, 37);
   --border1: #414141;
   --ratting: #ffa311;
-  --bgsection: #fff;
+  --bgsection: #000000;
   --success: #3FCA90;
   --danger: #ED5050;
   --boxes1: rgba(26, 77, 190, 0.05);
@@ -63,7 +63,6 @@ body {
 }
 
 h2,
-h3,
 h4,
 h5,
 h6 {
@@ -71,6 +70,13 @@ h6 {
   text-transform: capitalize;
   font-family: "Kanit", sans-serif;
 }
+
+h3{
+  color: white;
+  text-transform: capitalize;
+  font-family: "Kanit", sans-serif;
+}
+
 
 h1 {
   font-size: 48px;
@@ -1880,7 +1886,7 @@ p {
 	width: 100%;
 	z-index: 99;
 	transition: all 0.9s;
-	background: #1F1F1F;
+	background: #ffffff;
 	box-shadow: 0px -31px 32px 9px #585858;
 }
 
@@ -1979,7 +1985,7 @@ p {
     width: 250px;
     z-index: 999;
     transition: all 0.3s;
-    background: var(--white);
+    background:white;
     box-shadow: rgba(0, 0, 0, 0.15) 0px -1px 34px 0px;
     justify-content: center;
     opacity: 0;
@@ -2012,7 +2018,7 @@ p {
     width: 250px;
     z-index: 999;
     transition: all 0.3s;
-    background: var(--white);
+    background: white;
     box-shadow: rgba(0, 0, 0, 0.15) 0px -1px 34px 0px;
     justify-content: center;
     opacity: 0;
@@ -2137,7 +2143,7 @@ p {
     transition: all 0.4s !important;
     transform-origin: top;
     max-height: calc(100vh - 130px);
-    background: var(--subtitle);
+    background: white;
     overflow-y: auto;
   }
   .main-menu:not(.active) {
@@ -2558,7 +2564,7 @@ p {
   font-size: 20px;
 }
 .name-information .ndetails {
-  color: #e8e4e4;
+  color: #000000;
 }
 
 .designers {
@@ -3309,7 +3315,7 @@ p {
 .common__sub {
   font-size: 24px;
   font-family: "Caveat", cursive;
-  color: #fff;
+  color: #000000;
   position: relative;
   display: inline-block;
   margin: 0 auto 30px;
@@ -3344,7 +3350,7 @@ p {
 }
 
 .black-color h2 {
-  color: #fff !important;
+  color: #000000 !important;
 }
 
 @keyframes bedt {
@@ -5541,7 +5547,7 @@ p {
 }
 .footer-widget form input,
 .footer-widget form textarea {
-  background: #1F1F1F;
+  background: #ffffff;
   border: 1px solid var(--cusborder);
   border-radius: 1px;
   color: var(--pra);

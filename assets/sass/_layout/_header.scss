@@ -138,7 +138,7 @@
 	height: 100%;
 	// position: fixed;
 	z-index: 99999;
-	background: #000;
+	background: #ffffff;
 	right: -320px;
 	top: 0;
 	transition: all 0.4s;
@@ -241,7 +241,7 @@
 	width: 100%;
 	z-index: 99;
 	transition: all 0.9s;
-	background: #000000;
+	background: #ffffff;
 	box-shadow: 0px -31px 32px 9px #234DD4;
 }
 .header-wrapper {
@@ -498,7 +498,7 @@
 		transition: all 0.4s !important;
 		transform-origin: top;
 		max-height: calc(100vh - 130px);
-		background:var(--subtitle);
+		background:#ffffff;
 		overflow-y: auto;
 		&:not(.active) {
 			position: fixed;

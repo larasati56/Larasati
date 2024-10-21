@@ -58,5 +58,4 @@ Feel free to connect with Zakia through the following platforms:
 
 Instagram: zakia.larasati
 Email: dwihadizakialarasati@gmail.com
-Phone: +62 8138-2914-636
 This website is constantly evolving as Zakia adds new projects and updates her skills. Stay tuned for more updates!
